@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a simple **To-Do List** application built with **React.js** and **TypeScript**. It allows users to add, edit, complete, and delete tasks. The application stores tasks in **localStorage**, ensuring data persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+✅ Add new tasks with a description and deadline  
+✅ Mark tasks as completed  
+✅ Delete tasks  
+✅ Tasks are stored in **localStorage**  
+✅ Uses **React Hooks** (`useState`, `useEffect`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+-  **React.js** with **TypeScript**
+-  **Vite** (for fast development)
+-  **CSS** (for styling)
+-  **localStorage** (for data persistence)
+
+## Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```sh
+git clone https://github.com/Tol1bjonov/todo-app.git
+cd todo-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```sh
+npm install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 3️⃣ Run the application
+
+```sh
+npm run dev
+```
+
+## Project Structure
+
+```
+/src
+ ├── components
+ │   ├── TaskForm.tsx       # Form to add new tasks
+ │   ├── TaskList.tsx       # List of tasks
+ │   ├── TaskItem.tsx       # Single task item
+ │
+ ├── App.tsx                # Main application component
+ ├── main.tsx               # Entry point
+ ├── styles.css             # Global styles
+```
+
+## Usage
+
+1️⃣ Open the application in a browser  
+2️⃣ Enter a task description and deadline in the form  
+3️⃣ Click **"Add Task"** to save it  
+4️⃣ Click on a task to mark it as completed  
+5️⃣ Click the **"Delete"** button to remove a task
+
+## Deployment
+
+You can deploy the app using **GitHub Pages** or **Vercel**:
+
+```sh
+git push origin main
 ```
