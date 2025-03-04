@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 interface Task {
+   id: number
    description: string
    deadline: string
    completed: boolean
@@ -18,7 +19,15 @@ function TaskForm({ onAddTask }: TaskFormProps) {
       e.preventDefault()
 
       if (!description.trim()) return
-      onAddTask({ description, deadline, completed: false })
+
+      const newTask: Task = {
+         id: Date.now(), // Har bir vazifa uchun unikal ID yaratamiz
+         description,
+         deadline,
+         completed: false,
+      }
+
+      onAddTask(newTask)
       setDescription('')
       setDeadline('')
    }
