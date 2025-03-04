@@ -1,4 +1,5 @@
 interface Task {
+   id: number
    description: string
    deadline: string
    completed: boolean
@@ -6,23 +7,22 @@ interface Task {
 
 interface TaskItemProps {
    task: Task
-   onToggleComplete: (task: Task) => void
-   onDelete: (task: Task) => void
+   onToggleComplete: (taskId: number) => void
+   onDelete: (taskId: number) => void
 }
 
 function TaskItem({ task, onToggleComplete, onDelete }: TaskItemProps) {
    return (
-      <div
-         className="wrapper"
-         style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-      >
-         <div>
-            <span>
-               {task.description} (Date: {task.deadline})
-            </span>
-            <button onClick={() => onToggleComplete(task)}>✔</button>
-            <button onClick={() => onDelete(task)}>🗑</button>
-         </div>
+      <div className="wrapper">
+         <p
+            style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+         >
+            {task.description} - {task.deadline}
+         </p>
+         <button onClick={() => onToggleComplete(task.id)}>
+            {task.completed ? 'Undo✔' : 'Complete✔'}
+         </button>
+         <button onClick={() => onDelete(task.id)}>Delete🗑</button>
       </div>
    )
 }

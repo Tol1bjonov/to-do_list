@@ -1,34 +1,35 @@
-import TaskItem from "./TaskItem";
+import TaskItem from './TaskItem'
 
 interface Task {
-  description: string;
-  deadline: string;
-  completed: boolean;
+   id: number
+   description: string
+   deadline: string
+   completed: boolean
 }
 
 interface TaskListProps {
-  tasks: Task[];
-  onToggleComplete: (task: Task) => void;
-  onDelete: (task: Task) => void;
+   tasks: Task[]
+   onToggleComplete: (taskId: number) => void
+   onDelete: (taskId: number) => void
 }
 
 function TaskList({ tasks, onToggleComplete, onDelete }: TaskListProps) {
-  return (
-    <div>
-      {tasks.length === 0 ? (
-        <p>No tasks added yet.</p>
-      ) : (
-        tasks.map((task, index) => (
-          <TaskItem
-            key={index}
-            task={task}
-            onToggleComplete={onToggleComplete}
-            onDelete={onDelete}
-          />
-        ))
-      )}
-    </div>
-  );
+   return (
+      <div>
+         {tasks.length === 0 ? (
+            <p>No Tasks added yet.</p>
+         ) : (
+            tasks.map((task) => (
+               <TaskItem
+                  key={task.id}
+                  task={task}
+                  onToggleComplete={onToggleComplete}
+                  onDelete={onDelete}
+               />
+            ))
+         )}
+      </div>
+   )
 }
 
-export default TaskList;
+export default TaskList
