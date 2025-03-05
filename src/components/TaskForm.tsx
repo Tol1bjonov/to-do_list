@@ -21,7 +21,7 @@ function TaskForm({ onAddTask }: TaskFormProps) {
       if (!description.trim()) return
 
       const newTask: Task = {
-         id: Date.now(), // Har bir vazifa uchun unikal ID yaratamiz
+         id: Date.now(),
          description,
          deadline,
          completed: false,
